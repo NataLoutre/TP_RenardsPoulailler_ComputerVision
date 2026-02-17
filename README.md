@@ -13,13 +13,13 @@
   <img src="https://img.shields.io/badge/python-3.10+-green" />
 <br/>
 
---
+---
 
 ## 📑 Table des matières
 
-- [1. Introduction au projet](#0-introduction-au-projet)
-- [2. Partie AWS](#2-partie-aws)
-- [3. Partie IHM via Streamlit](#3-partie-ihm-via-streamlit)
+- [1. Introduction au projet](#1-introduction-au-projet)
+- [2. Dataset personnalisé](#2-dataset-personnalisé)
+- [3. Entrainement des différents modèles](#3-entrainement-des-différents-modèles)
 
 <br/>
 
