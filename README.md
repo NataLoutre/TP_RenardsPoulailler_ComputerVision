@@ -145,7 +145,8 @@ Test ──────────▶ Métriques de test
              ├─▶ Test sur des images hors dataset
 ```
 
-## Conclusion
+---
+## 4. Conclusion
 <p align="justify">
 <i>Quelle est donc la meilleure solution pour nos poules ?
 </i>
