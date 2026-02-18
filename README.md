@@ -82,6 +82,10 @@ Les images ont ensuite été réaprties en groupes d'entrainement (_train_) de v
 
 ---
 ## 3. Entrainement des différents modèles
+
+- [A. Les modèles non-retenus](#a-les-modèles-non-retenus)
+- [B. Les modèles entrainés](#b-les-modèles-entrainés)
+
 ### A. Les modèles non-retenus
 
 <p align="justify">
@@ -123,6 +127,7 @@ Chaque modèle a été entrainé sur l'ensemble <i>d'entrainement</i> et des mé
 Afin de tester la robustesse de nos modèle face à de nouvelles images, des tests on été réalisés sur deux "types" d'images provenant de sources extérieure au dataset :
 <ul>
   <li>Un test sur des images avec <b>d'autres volatiles</b> que des poules (ici des oies) : les ressources images sont <code>Images_test\Poules_Oie.png</code> et <code>Images_test\Poules_Oies_2.png</code></li>
+
   <li>Un test sur des images avec <b>beaucoup de poules</b> pour véfifier si le modèle peut détecter plus de 3/4 poules : les ressources images sont <code>Images_test\Poules_Multiple.png</code> et <code>IImages_test\Poules_Nombreuses.png</code></li>
 </ul>
 
@@ -133,11 +138,38 @@ Les scripts d'entrainement s'articulent selon :
 Entrainement ──▶ Load des données et entrainement
              ├─▶ Métriques d'évaluation
 
-Validation   ──▶ Métriques de validation
+Validation ────▶ Métriques de validation
 
-Test         ──▶ Métriques de test
+Test ──────────▶ Métriques de test
              ├─▶ Test sur des images du dataset
              ├─▶ Test sur des images hors dataset
 ```
 
-## Conslusion
+## Conclusion
+<p align="justify">
+<i>Quelle est donc la meilleure solution pour nos poules ?
+</i>
+
+Afin de tester la robustesse de nos modèle face à de nouvelles images, des tests on été réalisés sur deux "types" d'images provenant de sources extérieure au dataset :
+<ul>
+  <li><b>YOLO-11</b> est le modèle le plus rapide et le moins coûteux, mais il manque de rappel : il ne détecte pas tous les oiseaux.</li>
+  
+  <li><b>YOLO-26</b> génère des faux positifs, notamment en « hallucinant » des renards, ce qui peut entraîner des alertes inutiles.</li>
+
+  <li><b>RF-DETR</b> offre les meilleures performances globales, mais son implémentation est nettement plus coûteuse en ressources.</li>
+</ul>
+
+</p>
+
+<p align="center">
+<i>Merci d'avoir fait appel à <b>Poul-ai-ller</b> !!!</i>
+</p>
+<p align="center">
+  <img src="Images_Readme\logo_poulailler.jpg" width="60%"/>
+  <br>
+</p>
+
+<br>
+<p align="center">
+Et merci pour cette année 😉💚
+</p>
