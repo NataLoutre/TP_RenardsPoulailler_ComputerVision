@@ -24,7 +24,7 @@
 
 <br/>
 
-Les diapositives du projet sont disponibles dans le document : ```Présentation_RenardsPoulailler_ComputerVision_CRUEYZE_HAROUNYAN_PADRINO_ZARGOUNI.pptx```
+Les diapositives du projet sont disponibles dans le document : ```Présentation_RenardsPoulailler_ComputerVision_CRUEYZE_HAROUNYAN_PADRINO_ZARGOUNI.pdf```
 <br/>
 
 ---
