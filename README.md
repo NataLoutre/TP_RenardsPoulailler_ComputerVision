@@ -118,12 +118,12 @@ Nous avons finalement sélectionné 3 modèles pour l'entrainement :
 </ul>
 
 <p align="justify">
-Chaque modèle a été entrainé sur l'ensemble <i>d'entrainement</i> et des métriques et résultats ont été déduites des ensembles de <i>validation</i> et de <i>test</i>.
+Chaque modèle a été entrainé sur l'ensemble <i>d'entrainement</i> et des métriques et résultats ont été déduis des ensembles de <i>validation</i> et de <i>test</i>.
 
 Afin de tester la robustesse de nos modèle face à de nouvelles images, des tests on été réalisés sur deux "types" d'images provenant de sources extérieure au dataset :
 <ul>
-  <li>Un test sur des images avec d'autres volatiles que des poules (ici des oies) : les ressources images sont <code>Images_test\Poules_Oie.png</code> et <code>Images_test\Poules_Oies_2.png</code></li>
-  <li>Un test sur des images avec beaucoup de poules pour véfifier si le modèle peut détecter plus de 3/4 poules : les ressources images sont <code>Images_test\Poules_Multiple.png</code> et <code>IImages_test\Poules_Nombreuses.png</code></li>
+  <li>Un test sur des images avec <b>d'autres volatiles</b> que des poules (ici des oies) : les ressources images sont <code>Images_test\Poules_Oie.png</code> et <code>Images_test\Poules_Oies_2.png</code></li>
+  <li>Un test sur des images avec <b>beaucoup de poules</b> pour véfifier si le modèle peut détecter plus de 3/4 poules : les ressources images sont <code>Images_test\Poules_Multiple.png</code> et <code>IImages_test\Poules_Nombreuses.png</code></li>
 </ul>
 
 </p>
@@ -133,11 +133,11 @@ Les scripts d'entrainement s'articulent selon :
 Entrainement ──▶ Load des données et entrainement
              ├─▶ Métriques d'évaluation
 
-Validation ──▶ Métriques de validation
+Validation   ──▶ Métriques de validation
 
-Test ──▶ Métriques de test
-     ├─▶ Test sur des images du dataset
-     ├─▶ Test sur des images hors dataset
+Test         ──▶ Métriques de test
+             ├─▶ Test sur des images du dataset
+             ├─▶ Test sur des images hors dataset
 ```
 
 ## Conslusion
