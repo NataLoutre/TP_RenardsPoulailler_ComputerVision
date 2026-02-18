@@ -152,11 +152,11 @@ Test ──────────▶ Métriques de test
 
 Afin de tester la robustesse de nos modèle face à de nouvelles images, des tests on été réalisés sur deux "types" d'images provenant de sources extérieure au dataset :
 <ul>
-  <li><b>YOLO-11</b> est le modèle le plus rapide et le moins coûteux, mais il manque de rappel : il ne détecte pas tous les oiseaux.</li>
+  <li><b>YOLO-11</b> est le modèle le plus rapide et le moins coûteux, a de très bons résulats sur les images de test du dataset mais il manque de rappel : il ne détecte pas tous les oiseaux (difficulté de généralisation sur des images hors dataset).</li>
   
-  <li><b>YOLO-26</b> génère des faux positifs, notamment en « hallucinant » des renards, ce qui peut entraîner des alertes inutiles.</li>
+  <li><b>YOLO-26</b> a les score de précision les plus faibles et génère des faux positifs, notamment en « hallucinant » des renards, ce qui peut entraîner des alertes inutiles.</li>
 
-  <li><b>RF-DETR</b> offre les meilleures performances globales, mais son implémentation est nettement plus coûteuse en ressources.</li>
+  <li><b>RF-DETR</b> offre les meilleures performances globales, mais son implémentation est nettement plus coûteuse en ressources (30 Go contre 10Go pour YOLO-11 et 12Go pour YOLO-26).</li>
 </ul>
 
 </p>
