@@ -20,6 +20,7 @@
 - [1. Introduction au projet](#1-introduction-au-projet)
 - [2. Dataset personnalisé](#2-dataset-personnalisé)
 - [3. Entrainement des différents modèles](#3-entrainement-des-différents-modèles)
+- [4. Conclusion](#4-conclusion)
 
 <br/>
 
@@ -81,14 +82,62 @@ Les images ont ensuite été réaprties en groupes d'entrainement (_train_) de v
 
 ---
 ## 3. Entrainement des différents modèles
-Test de SAM
+### A. Les modèles non-retenus
 
-Test de YOLO 8 pré entrainé sur COCO 
+<p align="justify">
+Nous avons testé le modèle <b>SAM2</b> (Segment Anything Model 2). Il s'agit d'un modèle de segmentation guidée par prompt : il ne fait pas de détection d’objets autonome (pas de bounding boxes classifiées).
 
-Nous avons finalement sélectionné 3 modèles : 
+Or SAM2 ne fait pas de détection multi-classes ou de classification, donc nous nous sommes donc uniquement intéressé à des modèles de détection.
+</p>
+
+<p align="center">
+  <img src="Images_Readme\3_SAM2.png"
+  width="80%"/><br>
+  <em>Figure 5 – Test de segmentation via SAM2</em>
+</p>
+<br>
+
+<p align="justify">
+Nous avons par la suite testé le modèle <b>YOLOv8</b> pré-entraîné sur COCO. Il s'agit d'un modèle de détection d’objets temps réel entrainé sur 80 classes présente dans le dataset COCO.
+
+Néanmoins en raison de faible de performances sur domaines spécifiques et de l'abscence de classes "poule" et "renard" nous avons décliné cette option.
+</p>
+
+<p align="center">
+  <img src="Images_Readme\3_YOLO8.png"
+  width="100%"/><br>
+  <em>Figure 6 – Test de détection via YOLO8 pré-entrainé sur le dataset COCO</em>
+</p>
+
+### B. Les modèles entrainés
+Nous avons finalement sélectionné 3 modèles pour l'entrainement : 
  <ul>
-  <li>YOLO 11</li>
-  <li>YOLO 26</li>
-  <li>RF-DETR</li>
+  <li>YOLO 11 : l'entrainement se trouve dans <code>YOLO\Inference_YOLO_11.ipynb</code></li>
+  <li>YOLO 26 : l'entrainement se trouve dans <code>YOLO\Inference_YOLO_26.ipynb</code></li>
+  <li>RF-DETR : l'entrainement se trouve dans <code>RF-DETR\RFDETR.ipynb</code></li>
 </ul>
 
+<p align="justify">
+Chaque modèle a été entrainé sur l'ensemble <i>d'entrainement</i> et des métriques et résultats ont été déduites des ensembles de <i>validation</i> et de <i>test</i>.
+
+Afin de tester la robustesse de nos modèle face à de nouvelles images, des tests on été réalisés sur deux "types" d'images provenant de sources extérieure au dataset :
+<ul>
+  <li>Un test sur des images avec d'autres volatiles que des poules (ici des oies) : les ressources images sont <code>Images_test\Poules_Oie.png</code> et <code>Images_test\Poules_Oies_2.png</code></li>
+  <li>Un test sur des images avec beaucoup de poules pour véfifier si le modèle peut détecter plus de 3/4 poules : les ressources images sont <code>Images_test\Poules_Multiple.png</code> et <code>IImages_test\Poules_Nombreuses.png</code></li>
+</ul>
+
+</p>
+
+Les scripts d'entrainement s'articulent selon :
+```text
+Entrainement ──▶ Load des données et entrainement
+             ├─▶ Métriques d'évaluation
+
+Validation ──▶ Métriques de validation
+
+Test ──▶ Métriques de test
+     ├─▶ Test sur des images du dataset
+     ├─▶ Test sur des images hors dataset
+```
+
+## Conslusion
