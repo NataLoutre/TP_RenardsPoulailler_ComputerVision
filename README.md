@@ -24,6 +24,9 @@
 
 <br/>
 
+Les diapositives du projet sont disponibles dans le document : ```Présentation_RenardsPoulailler_ComputerVision_CRUEYZE_HAROUNYAN_PADRINO_ZARGOUNI.pptx```
+<br/>
+
 ---
 
 ## 1. Introduction au projet
@@ -31,7 +34,7 @@
 On a tous connu une gentille poule, morte dans d’atroces souffrances à cause d’un… Renard. 
 La vôtre s’appelait sans doute « poupoule », « poulette », «Bérénice »…
 
-C'est pourquoi l'entreprise <b>Poul-ai-ller</b> à mis en place son système NugGet-Information. 
+C'est pourquoi l'entreprise <b>Poul-ai-ller</b> a mis en place son système NugGet-Information. 
 
 Grâce à lui, fini les nuits stressantes à imaginer le pire pour vos poules : vous pouvez suivre en direct votre poulailler et être averti lorsqu’un renard pointe le bout de son nez ! 
 </p>
@@ -91,7 +94,7 @@ Les images ont ensuite été réaprties en groupes d'entrainement (_train_) de v
 <p align="justify">
 Nous avons testé le modèle <b>SAM2</b> (Segment Anything Model 2). Il s'agit d'un modèle de segmentation guidée par prompt : il ne fait pas de détection d’objets autonome (pas de bounding boxes classifiées).
 
-Or SAM2 ne fait pas de détection multi-classes ou de classification, donc nous nous sommes donc uniquement intéressé à des modèles de détection.
+Or SAM2 ne fait pas de détection multi-classes ou de classification, donc nous nous sommes donc uniquement intéressés à des modèles de détection.
 </p>
 
 <p align="center">
@@ -104,7 +107,7 @@ Or SAM2 ne fait pas de détection multi-classes ou de classification, donc nous 
 <p align="justify">
 Nous avons par la suite testé le modèle <b>YOLOv8</b> pré-entraîné sur COCO. Il s'agit d'un modèle de détection d’objets temps réel entrainé sur 80 classes présente dans le dataset COCO.
 
-Néanmoins en raison de faible de performances sur domaines spécifiques et de l'abscence de classes "poule" et "renard" nous avons décliné cette option.
+Néanmoins en raison de faibles performances sur des domaines spécifiques et de l'absence de classes "poule" et "renard" nous avons décliné cette option.
 </p>
 
 <p align="center">
@@ -122,13 +125,13 @@ Nous avons finalement sélectionné 3 modèles pour l'entrainement :
 </ul>
 
 <p align="justify">
-Chaque modèle a été entrainé sur l'ensemble <i>d'entrainement</i> et des métriques et résultats ont été déduis des ensembles de <i>validation</i> et de <i>test</i>.
+Chaque modèle a été entrainé sur l'ensemble <i>d'entrainement</i> et des métriques et résultats ont été déduits des ensembles de <i>validation</i> et de <i>test</i>.
 
-Afin de tester la robustesse de nos modèle face à de nouvelles images, des tests on été réalisés sur deux "types" d'images provenant de sources extérieure au dataset :
+Afin de tester la robustesse de nos modèles face à de nouvelles images, des tests on été réalisés sur deux "types" d'images provenant de sources extérieures au dataset :
 <ul>
   <li>Un test sur des images avec <b>d'autres volatiles</b> que des poules (ici des oies) : les ressources images sont <code>Images_test\Poules_Oie.png</code> et <code>Images_test\Poules_Oies_2.png</code></li>
 
-  <li>Un test sur des images avec <b>beaucoup de poules</b> pour véfifier si le modèle peut détecter plus de 3/4 poules : les ressources images sont <code>Images_test\Poules_Multiple.png</code> et <code>IImages_test\Poules_Nombreuses.png</code></li>
+  <li>Un test sur des images avec <b>beaucoup de poules</b> pour véfifier si le modèle peut détecter plus de 3/4 poules : les ressources images sont <code>Images_test\Poules_Multiple.png</code> et <code>Images_test\Poules_Nombreuses.png</code></li>
 </ul>
 
 </p>
@@ -151,11 +154,11 @@ Test ──────────▶ Métriques de test
 <i>Quelle est donc la meilleure solution pour nos poules ?
 </i>
 
-Afin de tester la robustesse de nos modèle face à de nouvelles images, des tests on été réalisés sur deux "types" d'images provenant de sources extérieure au dataset :
+Afin de tester la robustesse de nos modèles face à de nouvelles images, des tests on été réalisés sur deux "types" d'images provenant de sources extérieures au dataset :
 <ul>
-  <li><b>YOLO-11</b> est le modèle le plus rapide et le moins coûteux, a de très bons résulats sur les images de test du dataset mais il manque de rappel : il ne détecte pas tous les oiseaux (difficulté de généralisation sur des images hors dataset).</li>
+  <li><b>YOLO-11</b> est le modèle le plus rapide et le moins coûteux, a de très bons résultats sur les images de test du dataset mais il manque de rappel : il ne détecte pas tous les oiseaux (difficulté de généralisation sur des images hors dataset).</li>
   
-  <li><b>YOLO-26</b> a les score de précision les plus faibles et génère des faux positifs, notamment en « hallucinant » des renards, ce qui peut entraîner des alertes inutiles.</li>
+  <li><b>YOLO-26</b> a les scores de précision le plus faible et génère des faux positifs, notamment en « hallucinant » des renards, ce qui peut entraîner des alertes inutiles.</li>
 
   <li><b>RF-DETR</b> offre les meilleures performances globales, mais son implémentation est nettement plus coûteuse en ressources (30 Go contre 10Go pour YOLO-11 et 12Go pour YOLO-26).</li>
 </ul>
